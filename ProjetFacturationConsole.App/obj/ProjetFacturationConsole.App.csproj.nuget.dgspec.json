@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj": {}
+    "c:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj": {
+    "c:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj",
+        "projectUniqueName": "c:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj",
         "projectName": "ProjetFacturationConsole.App",
-        "projectPath": "C:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj",
+        "projectPath": "c:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\ProjetFacturationConsole.App.csproj",
         "packagesPath": "C:\\Users\\travail\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\obj\\",
+        "outputPath": "c:\\Users\\travail\\Documents\\ProjetFacturationConsole\\ProjetFacturationConsole\\ProjetFacturationConsole.App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\travail\\AppData\\Roaming\\NuGet\\NuGet.Config"
