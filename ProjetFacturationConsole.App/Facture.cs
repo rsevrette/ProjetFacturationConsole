@@ -6,8 +6,7 @@ public class Facture : DocumentCommercial
 
     public Facture() : base() { }
 
-    public Facture(string numero, DateTime dateEmission, Client client, Entreprise entreprise,
-                   DateTime dateEcheance, string statut)
+    public Facture(string numero, DateTime dateEmission, Client client, Entreprise entreprise,DateTime dateEcheance, string statut)
         : base(numero, dateEmission, client, entreprise)
     {
         this.dateEcheance = dateEcheance;

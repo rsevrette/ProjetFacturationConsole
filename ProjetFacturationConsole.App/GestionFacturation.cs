@@ -24,4 +24,101 @@ public class GestionFacturation
 
     public Dictionary<int, Entreprise> GetDictionnaireEntreprises() { return dictionnaireEntreprises; }
     public void SetDictionnaireEntreprises(Dictionary<int, Entreprise> value) { dictionnaireEntreprises = value; }
+
+    public void ImporterClientsDepuisCsv()
+    {
+        try
+        {
+            clients.Clear();
+            dictionnaireClients.Clear();
+
+            string[] lignesFichier = File.ReadAllLines("clients.csv");
+
+            for (int i = 1; i < lignesFichier.Length; i++) // 🔥 on saute l'en-tête
+            {
+                string ligne = lignesFichier[i];
+
+                if (string.IsNullOrWhiteSpace(ligne))
+                    continue;
+
+                string[] colonnes = ligne.Split(';');
+
+                int id = int.Parse(colonnes[0]);
+                string nom = colonnes[1];
+                string email = colonnes[2];
+                string telephone = colonnes[3];
+                string adresse = colonnes[4];
+                string ville = colonnes[5];
+                string codePostal = colonnes[6];
+                DateTime dateInscription = DateTime.Parse(colonnes[7]);
+
+                if (dateInscription > DateTime.Now)
+                    throw new Exception("Date d'inscription invalide");
+
+                Client client = new Client(id, nom, email, telephone, adresse, ville, codePostal, dateInscription);
+
+                clients.Add(client);
+                dictionnaireClients.Add(id, client);
+            }
+
+            string json = System.Text.Json.JsonSerializer.Serialize(
+                clients,
+                new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+
+            File.WriteAllText("clients.json", json);
+
+            Console.WriteLine("Clients importés avec succès !");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+    }
+
+    public void ImporterEntreprisesDepuisCsv()
+    {
+        try
+        {
+            entreprises.Clear();
+            dictionnaireEntreprises.Clear();
+
+            string[] lignesFichier = File.ReadAllLines("entreprises.csv");
+
+            for (int i = 1; i < lignesFichier.Length; i++) // 🔥 même correction
+            {
+                string ligne = lignesFichier[i];
+
+                if (string.IsNullOrWhiteSpace(ligne))
+                    continue;
+
+                string[] colonnes = ligne.Split(';');
+
+                int id = int.Parse(colonnes[0]);
+                string nom = colonnes[1];
+                string email = colonnes[2];
+                string telephone = colonnes[3];
+                string adresse = colonnes[4];
+                string ville = colonnes[5];
+                string codePostal = colonnes[6];
+                string siret = colonnes[7];
+
+                Entreprise entreprise = new Entreprise(id, nom, email, telephone, adresse, ville, codePostal, siret);
+
+                entreprises.Add(entreprise);
+                dictionnaireEntreprises.Add(id, entreprise);
+            }
+
+            string json = System.Text.Json.JsonSerializer.Serialize(
+                entreprises,
+                new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+
+            File.WriteAllText("entreprises.json", json);
+
+            Console.WriteLine("Entreprises importées avec succès !");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+    }
 }

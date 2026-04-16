@@ -48,5 +48,12 @@ class Program
 
         Console.WriteLine("__________Facture________");
         f.AfficherFacture();
+
+        // Test Importer les données depuis les CSV et générer les JSON
+        GestionFacturation g = new GestionFacturation();
+        g.ImporterClientsDepuisCsv();
+        g.ImporterEntreprisesDepuisCsv();
+        Console.WriteLine(g.GetClients().Count);
+        Console.WriteLine(g.GetEntreprises().Count);
     }
 }

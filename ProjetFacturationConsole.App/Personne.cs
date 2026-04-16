@@ -1,17 +1,16 @@
 public abstract class Personne
 {
-    protected int id;
-    protected string nom;
-    protected string email;
-    protected string telephone;
-    protected string adresse;
-    protected string ville;
-    protected string codePostal;
+    public int id { get; set; }
+    public string nom { get; set; }
+    public string email { get; set; }
+    public string telephone { get; set; }
+    public string adresse { get; set; }
+    public string ville { get; set; }
+    public string codePostal { get; set; }
 
     public Personne() { }
 
-    public Personne(int id, string nom, string email, string telephone,
-                    string adresse, string ville, string codePostal)
+    public Personne(int id, string nom, string email, string telephone,string adresse, string ville, string codePostal)
     {
         this.id = id;
         this.nom = nom;
