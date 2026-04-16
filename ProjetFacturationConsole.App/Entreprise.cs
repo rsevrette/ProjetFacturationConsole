@@ -17,5 +17,6 @@ public class Entreprise : Personne
 
     public override void AfficherInfos()
     {
+        Console.WriteLine($"{id} - {nom} - {email} - {telephone} - {adresse} - {ville} - {codePostal} - {siret}");
     }
 }

@@ -36,4 +36,45 @@ public abstract class DocumentCommercial
     public void SetLignes(List<LigneFacture> value) { lignes = value; }
 
     public abstract void AfficherFacture();
+
+    public void AjouterLigne(LigneFacture ligne)
+    {
+        lignes.Add(ligne);
+    }
+
+    public decimal CalculerTotalHT()
+    {
+        decimal total = 0;
+
+        foreach (var ligne in lignes)
+        {
+            total += ligne.CalculerTotalHT();
+        }
+
+        return total;
+    }
+
+    public decimal CalculerTotalTVA()
+    {
+        decimal total = 0;
+
+        foreach (var ligne in lignes)
+        {
+            total += ligne.CalculerMontantTVA();
+        }
+
+        return total;
+    }
+
+    public decimal CalculerTotalTTC()
+    {
+        decimal total = 0;
+
+        foreach (var ligne in lignes)
+        {
+            total += ligne.CalculerTotalTTC();
+        }
+
+        return total;
+    }
 }

@@ -17,6 +17,6 @@ public class Client : Personne
 
     public override void AfficherInfos()
     {
-        
+        Console.WriteLine($"{id} - {nom} - {email} - {telephone} - {adresse} - {ville} - {codePostal} - {dateInscription:dd/MM/yyyy}");
     }
 }

@@ -26,4 +26,25 @@ public class LigneFacture
 
     public decimal GetTauxTva() { return tauxTva; }
     public void SetTauxTva(decimal value) { tauxTva = value; }
+
+    public decimal CalculerTotalHT()
+    {
+        if (quantite <= 0)
+            throw new Exception("Quantité invalide");
+
+        if (prixUnitaireHt < 0)
+            throw new Exception("Prix invalide");
+
+        return quantite * prixUnitaireHt;
+    }
+
+    public decimal CalculerMontantTVA()
+    {
+        return CalculerTotalHT() * (tauxTva / 100);
+    }
+
+    public decimal CalculerTotalTTC()
+    {
+        return CalculerTotalHT() + CalculerMontantTVA();
+    }
 }
