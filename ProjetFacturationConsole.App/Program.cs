@@ -61,5 +61,19 @@ class Program
         g.AfficherClients();
         Console.WriteLine("--- Entreprises ---");
         g.AfficherEntreprises();
+
+        //etape 6
+        g.ImporterClientsDepuisCsv();
+        g.ImporterEntreprisesDepuisCsv();
+
+        Client c6 = g.GetDictionnaireClients()[1];
+        Entreprise e6 = g.GetDictionnaireEntreprises()[1];
+
+        Facture f6 = new Facture("F2026-001", DateTime.Parse("15/04/2026"), c6, e6, DateTime.Parse("15/05/2026"), "Brouillon");
+        f6.AjouterLigne(new LigneFacture("Développement", 2, 150, 20));
+        f6.AjouterLigne(new LigneFacture("Maintenance", 1, 80, 10));
+
+        f6.AfficherFacture();
+        g.GenererFichierTexteFacture(f6);
     }
 }
