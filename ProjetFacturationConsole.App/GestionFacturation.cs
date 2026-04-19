@@ -121,4 +121,64 @@ public class GestionFacturation
             Console.WriteLine("Erreur : " + ex.Message);
         }
     }
+    public void ChargerClientsDepuisJson()
+    {
+        try
+        {
+            clients.Clear();
+            dictionnaireClients.Clear();
+            string json = File.ReadAllText("clients.json");
+            List<Client> clientsCharges = System.Text.Json.JsonSerializer.Deserialize<List<Client>>(json);
+
+            foreach (Client client in clientsCharges)
+            {
+                clients.Add(client);
+                dictionnaireClients.Add(client.id, client);
+            }
+            Console.WriteLine("Clients chargés depuis le JSON avec succès !");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+    }
+    public void ChargerEntreprisesDepuisJson()
+    {
+        try
+        {
+            entreprises.Clear();
+            dictionnaireEntreprises.Clear();
+            string json = File.ReadAllText("entreprises.json");
+            List<Entreprise> entreprisesChargees = System.Text.Json.JsonSerializer.Deserialize<List<Entreprise>>(json);
+
+            foreach (Entreprise entreprise in entreprisesChargees)
+            {
+                entreprises.Add(entreprise);
+                dictionnaireEntreprises.Add(entreprise.id, entreprise);
+            }
+            Console.WriteLine("Entreprises chargées depuis le JSON avec succès !");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+    }
+    public void AfficherClients()
+    {
+        if (clients.Count == 0)
+            ChargerClientsDepuisJson();
+        foreach (Client client in clients)
+        {
+            Console.WriteLine($"{client.id} - {client.nom}");
+        }
+    }
+    public void AfficherEntreprises()
+    {
+        if (entreprises.Count == 0)
+            ChargerEntreprisesDepuisJson();
+        foreach (Entreprise entreprise in entreprises)
+        {
+            Console.WriteLine($"{entreprise.id} - {entreprise.nom}");
+        }
+    }
 }

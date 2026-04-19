@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Test de chaque classe
+        // Test de chaque classe  (Etape 2)
         Client client = new Client();
         client.SetNom("test");
 
@@ -29,7 +29,7 @@ class Program
         Console.WriteLine(facture.GetNumero());
         Console.WriteLine(gestion.GetClients().Count);
 
-        // Test des methodes
+        // Test des methodes  (Etape 3)
         Client c = new Client(2, "Paul", "paul@mail.fr", "0611223344", "12 rue ..", "Amiens", "80000", DateTime.Parse("12/03/2024"));
         Entreprise e = new Entreprise(1, "TechNova", "contact@technova.fr", "0322000001","25 rue ..", "Amiens", "80000", "12345678900011");
 
@@ -49,11 +49,17 @@ class Program
         Console.WriteLine("__________Facture________");
         f.AfficherFacture();
 
-        // Test Importer les données depuis les CSV et générer les JSON
+        // Test Importer les données depuis les CSV et générer les JSON  (Etape 4)
         GestionFacturation g = new GestionFacturation();
         g.ImporterClientsDepuisCsv();
         g.ImporterEntreprisesDepuisCsv();
         Console.WriteLine(g.GetClients().Count);
         Console.WriteLine(g.GetEntreprises().Count);
+
+        //Test charger et afficher les donnees depuis le JSON  (Etape 5)
+        Console.WriteLine("--- Clients ---");
+        g.AfficherClients();
+        Console.WriteLine("--- Entreprises ---");
+        g.AfficherEntreprises();
     }
 }
