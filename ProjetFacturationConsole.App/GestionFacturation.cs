@@ -297,4 +297,38 @@ public class GestionFacturation
         foreach (Personne p in contacts)
             p.AfficherInfos();
     }
+    public void AfficherMenu()
+    {
+        string choix = "";
+
+        while (choix != "0")
+        {
+            Console.WriteLine("1 - Importer les clients depuis le CSV");
+            Console.WriteLine("2 - Importer les entreprises depuis le CSV");
+            Console.WriteLine("3 - Afficher les clients");
+            Console.WriteLine("4 - Afficher les entreprises");
+            Console.WriteLine("5 - Créer une facture");
+            Console.WriteLine("6 - Afficher le carnet de contacts");
+            Console.WriteLine("0 - Quitter");
+            Console.Write("Votre choix : ");
+            choix = Console.ReadLine();
+
+            if (choix == "1")
+                ImporterClientsDepuisCsv();
+            else if (choix == "2")
+                ImporterEntreprisesDepuisCsv();
+            else if (choix == "3")
+                AfficherClients();
+            else if (choix == "4")
+                AfficherEntreprises();
+            else if (choix == "5")
+                CreerFacture();
+            else if (choix == "6")
+                AfficherCarnetContacts();
+            else if (choix == "0")
+                Console.WriteLine("Au revoir !");
+            else
+                Console.WriteLine("Choix invalide.");
+        }
+    }
 }

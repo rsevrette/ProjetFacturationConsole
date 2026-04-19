@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        /*
         // Test de chaque classe  (Etape 2)
         Client client = new Client();
         client.SetNom("test");
@@ -110,5 +111,10 @@ class Program
         // Test du carnet de contact  (Etape 8)
         Console.WriteLine("--- Carnet de contacts ---");
         g.AfficherCarnetContacts();
+        */
+
+        // Etape 9:menu principal
+        GestionFacturation gestion = new GestionFacturation();
+        gestion.AfficherMenu();
     }
 }
