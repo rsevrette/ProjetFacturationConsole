@@ -75,5 +75,36 @@ class Program
 
         f6.AfficherFacture();
         g.GenererFichierTexteFacture(f6);
+
+        // Test des exceptions  (Etape 7)
+        Console.WriteLine("--- Test quantite invalide ---");
+        try
+        {
+            LigneFacture ligneInvalide = new LigneFacture("Test", -1, 100, 20);
+            Console.WriteLine(ligneInvalide.CalculerTotalHT());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+        Console.WriteLine("--- Test prix invalide ---");
+        try
+        {
+            LigneFacture ligneInvalide2 = new LigneFacture("Test", 2, -50, 20);
+            Console.WriteLine(ligneInvalide2.CalculerTotalHT());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
+        Console.WriteLine("--- Test date inscription invalide ---");
+        try
+        {
+            Client clientInvalide = new Client(99, "Test", "test@mail.fr", "0600000000", "1 rue test", "Paris", "75000", DateTime.Parse("01/01/2030"));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur : " + ex.Message);
+        }
     }
 }

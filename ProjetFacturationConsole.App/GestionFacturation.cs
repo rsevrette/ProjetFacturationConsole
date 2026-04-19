@@ -253,9 +253,13 @@ public class GestionFacturation
 
                 Console.Write("Quantité : ");
                 int quantite = int.Parse(Console.ReadLine());
+                if (quantite <= 0)
+                    throw new Exception("Quantité invalide.");
 
                 Console.Write("Prix unitaire HT : ");
                 decimal prixHT = decimal.Parse(Console.ReadLine());
+                if (prixHT < 0)
+                    throw new Exception("Prix invalide.");
 
                 Console.Write("Taux TVA : ");
                 decimal tva = decimal.Parse(Console.ReadLine());
