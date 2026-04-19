@@ -279,4 +279,22 @@ public class GestionFacturation
             Console.WriteLine("Erreur : " + ex.Message);
         }
     }
+    public void AfficherCarnetContacts()
+    {
+        if (clients.Count == 0)
+            ChargerClientsDepuisJson();
+        if (entreprises.Count == 0)
+            ChargerEntreprisesDepuisJson();
+
+        List<Personne> contacts = new List<Personne>();
+
+        foreach (Client client in clients)
+            contacts.Add(client);
+
+        foreach (Entreprise entreprise in entreprises)
+            contacts.Add(entreprise);
+
+        foreach (Personne p in contacts)
+            p.AfficherInfos();
+    }
 }

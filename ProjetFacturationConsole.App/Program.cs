@@ -106,5 +106,9 @@ class Program
         {
             Console.WriteLine("Erreur : " + ex.Message);
         }
+    
+        // Test du carnet de contact  (Etape 8)
+        Console.WriteLine("--- Carnet de contacts ---");
+        g.AfficherCarnetContacts();
     }
 }
